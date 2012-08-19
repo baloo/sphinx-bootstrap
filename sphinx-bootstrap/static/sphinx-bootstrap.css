@@ -1,19 +1,19 @@
-@import "bootstrap.css";
+@import "bootstrap.min.css";
 
-a {
+/*a {
     color: #0E84B5;
-}
+}*/
 
 a:hover, .nav a:hover {
     color: #f26a1e;
     cursor: pointer;
 }
 
-.navbar-inner {
+/*.navbar-inner {
     background: #fff;
     background-color: #fff;
     height: 45px;
-}
+}*/
 
 .navbar .brand {
     color: #0E84B5;
@@ -47,6 +47,7 @@ a:hover, .nav a:hover {
     padding-top: 25px;
 }
 
+/*
 .footer {
     background-color: #eee;
     padding: 30px 0;
@@ -55,7 +56,7 @@ a:hover, .nav a:hover {
     -webkit-box-shadow: inset 0 5px 15px rgba(0, 0, 0, .025);
     -moz-box-shadow: inset 0 5px 15px rgba(0, 0, 0, .025);
     box-shadow: inset 0 5px 15px rgba(0, 0, 0, .025);
-}
+}*/
 
 .row-odd {
     background-color: #fafafa;
@@ -149,12 +150,11 @@ tr > td:nth-child(2) {
     color: #4070A0;
 }
 
-.quick-links {
+/*.quick-links {
     background-color: #EEEEEE;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
     list-style: none outside none;
-    /*margin: 43px 0 0;*/
     margin: 0;
     padding: 5px 20px;
     text-align: center;
@@ -180,7 +180,7 @@ tr > td:nth-child(2) {
 .quick-links .github-btn, .quick-links .tweet-btn, .quick-links .follow-btn, .plusone-container {
     position: relative;
     top: 5px;
-}
+}*/
 
 input[type="submit"] {
     display: inline-block;
