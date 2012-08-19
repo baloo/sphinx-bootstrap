@@ -5,12 +5,7 @@
 {%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
 
 {%- macro relbar(bottom=False) %}
-    <div class="related{% if bottom %} related-bottom{% endif %}">
-        <ul class="nav">
-            {%- block rootrellink %}
-                <li class="active"><a class="brand"
-                       href="{{ pathto(master_doc) }}">{{ project|e }}</a></li>
-            {%- endblock %}
+    <ul class="nav">
             {%- for rellink in rellinks %}
                 <li>
                     <a href="{{ pathto(rellink[0]) }}"
@@ -18,14 +13,15 @@
                     {%- if not loop.first %}{% endif %}
                 </li>
             {%- endfor %}
+
             {%- for parent in parents %}
                 <li><a href="{{ parent.link|e }}"
                         {% if loop.last %}{{ accesskey("U") }}{% endif %}>{{ parent.title }}</a>
                 </li>
             {%- endfor %}
             {%- block relbaritems %} {% endblock %}
-        </ul>
-    </div>
+
+    </ul>
 {%- endmacro %}
 
 {%- macro sidebar() %}
@@ -165,40 +161,30 @@
     {% endif %}
 </head>
 <body>
-    <div class="container">
 
 
 {%- block header %}
 
-    <div class="navbar">
+    <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
+                <a class="brand" href="./index.html">{{ project|e }}</a>
 
-                {%- block headerlogo %}
-                    {%- if logo %}
-                        <a href="{{ pathto(master_doc) }}">
-                            <img class="logo" src="{{ pathto('_static/' + logo, 1) }}"
-                            {% if theme_logo_width %} width="{{ theme_logo_width }}"{% endif %}
-                            {% if theme_logo_height %} height="{{ theme_logo_height }}"{% endif %}
-                            alt="{{ project|e }}" title="{{ project|e }}"/>
-                        </a>
-                    {%- else %}
-{#                        <a class="brand" href="./index.html">Bootstrap</a>#}
-                    {%- endif %}
-                {%- endblock %}
-
-                {%- block relbar1 %}{{ relbar() }}{% endblock %}
-                <div class="pull-right">
-                    {{ seachbox() }}
+                <div class="nav-collapse" id="main-menu"> 
+                  {%- block relbar1 %}{{ relbar() }}{% endblock %}
+                  <div class="pull-right">
+                      {{ seachbox() }}
+                  </div>
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
 
+    <div class="container">
+
 {%- block content %}
     {%- block sidebar1 %} {# possible location for sidebar #} {% endblock %}
-    <div class="container">
         <div class="content row">
             {%- block document %}
                 <div class="span9">
@@ -215,7 +201,6 @@
                 </div>
             {% endblock %}
         </div>
-    </div>
 {%- endblock %}
 
 {%- block footer %}
@@ -244,8 +229,8 @@
         </div>
     </footer>
 {%- endblock %}
+    </div>
 
-</div>
 {% if theme_disqus_shortname %}
     <!-- disqus -->
     <script type="text/javascript">
